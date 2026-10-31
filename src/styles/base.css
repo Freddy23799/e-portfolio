@@ -1,0 +1,119 @@
+/* Palette inspirée du tissu ndop de l'Ouest Cameroun : indigo profond, blanc craie,
+   et deux couleurs de perles pour les accents. */
+:root {
+  --indigo: #1E2A78;
+  --night: #0F1640;
+  --night-2: #18215A;
+  --chalk: #F3F4F8;
+  --mist: #C9CEE6;
+  --mist-dim: #8C93BD;
+  --bead: #F2B705;
+  --bead-red: #D7263D;
+  --wa: #25D366;
+
+  --font: 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Échelle typographique (rapport 1.25) */
+  --t-0: 0.8rem;
+  --t-1: 1rem;
+  --t-2: 1.25rem;
+  --t-3: 1.563rem;
+  --t-4: 1.953rem;
+  --t-5: 2.441rem;
+  --t-6: 3.815rem;
+
+  --gutter: clamp(16px, 4vw, 56px);
+  --nav-h: 56px;
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--nav-h);
+}
+
+body {
+  margin: 0;
+  background: var(--chalk);
+  color: var(--night);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.55;
+  font-variation-settings: 'wdth' 100;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.is-loading { overflow: hidden; }
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+button { font: inherit; color: inherit; }
+
+::selection { background: var(--bead); color: var(--night); }
+
+:focus-visible {
+  outline: 2px solid var(--bead);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section-title {
+  font-size: clamp(2.4rem, 7vw, 6rem);
+  line-height: .95;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 118;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6em;
+  padding: .9em 1.4em;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .3s var(--ease-out), color .3s var(--ease-out), transform .3s var(--ease-out);
+}
+.btn--solid { background: var(--bead); border-color: var(--bead); color: var(--night); }
+.btn:hover { transform: translateY(-2px); }
+.btn--solid:hover { background: var(--chalk); border-color: var(--chalk); }
+
+.mock-note {
+  margin-top: .8rem;
+  font-size: var(--t-0);
+  color: var(--mist-dim);
+}
+
+@media (pointer: fine) {
+  body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

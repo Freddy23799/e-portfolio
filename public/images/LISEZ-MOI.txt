@@ -1,0 +1,7 @@
+Mettez votre photo ici sous le nom : freddy.jpg
+(format portrait conseillé, par exemple 1200 x 1500 pixels).
+
+Tant que ce fichier n'existe pas, le site affiche un monogramme en motifs ndop à la place.
+Pour utiliser un autre nom de fichier, modifiez « photo » dans src/data/profile.js.
+
+og.png est l'image d'aperçu affichée quand on partage le lien du site (WhatsApp, Facebook, LinkedIn).
